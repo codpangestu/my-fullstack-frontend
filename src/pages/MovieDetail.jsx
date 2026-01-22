@@ -20,7 +20,7 @@ const MovieDetail = () => {
   useEffect(() => {
     const fetchMovie = async () => {
       try {
-        const res = await api.get(`/movie/${id}`);
+        const res = await api.get(`/movies/${id}`);
         setMovie(res.data.data);
       } catch (error) {
         console.log("ERROR FETCH MOVIE DETAIL:", error);

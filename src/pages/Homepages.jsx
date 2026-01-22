@@ -11,7 +11,7 @@ const Homepages = () => {
 
   const getMovies = async () => {
     try {
-      const res = await api.get("/movie"); 
+      const res = await api.get("/movies");
       setMovies(res.data.data);
     } catch (err) {
       console.log("ERROR FETCH MOVIES:", err);
