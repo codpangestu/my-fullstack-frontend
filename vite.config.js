@@ -7,6 +7,6 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
 
   preview: {
-    allowedHosts: "all",
+    allowedHosts: "my-fullstack-frontend-production.up.railway.app",
   },
 })
