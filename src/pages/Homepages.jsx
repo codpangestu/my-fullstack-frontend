@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import api from "../services/api";
 import axios from "axios";
 import Navbar from "../components/Navbar";
 import Card from "../components/Card";
@@ -8,13 +9,13 @@ import FAQSection from "../components/FAQSection";
 const Homepages = () => {
   const [movies, setMovies] = useState([]);
 
-  const getMovies = () => {
-    axios
-      .get("http://127.0.0.1:8000/api/movies")
-      .then((res) => {
-        setMovies(res.data.data);
-      })
-      .catch((err) => console.log(err));
+  const getMovies = async () => {
+    try {
+      const res = await api.get("/movie"); 
+      setMovies(res.data.data);
+    } catch (err) {
+      console.log("ERROR FETCH MOVIES:", err);
+    }
   };
 
   useEffect(() => {
