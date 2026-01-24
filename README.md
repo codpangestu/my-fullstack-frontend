@@ -1,16 +1,251 @@
-# React + Vite
+🎬 DiStreaming – Frontend Documentation
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React (Vite) + Tailwind CSS
+Last Updated: January 2026
 
-Currently, two official plugins are available:
+📌 Table of Contents
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Project Overview
 
-## React Compiler
+Core Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Authentication & Access Control
 
-## Expanding the ESLint configuration
+Routing Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Tech Stack
+
+API Integration
+
+Component Architecture
+
+Responsive Design
+
+Deployment Notes
+
+🎯 Project Overview
+
+DiStreaming is a fullstack streaming platform frontend built using React (Vite) and Tailwind CSS, designed to integrate with a Laravel REST API backend.
+
+The application supports:
+
+Role-based access control (User & Admin)
+
+Movie browsing and search
+
+Admin movie & category management
+
+Secure authentication using token-based auth
+
+Fully responsive UI (mobile → desktop)
+
+Deployed to Vercel
+
+🌟 Core Features
+1️⃣ Public Access (Guest)
+
+Landing page
+
+Movie list (read-only)
+
+Movie detail page
+
+Login & Register
+
+2️⃣ User Features
+
+Login & Logout
+
+Profile dropdown with user name
+
+Browse & search movies
+
+View movie details
+
+Responsive navigation (mobile / tablet / desktop)
+
+3️⃣ Admin Features
+
+Admin Dashboard
+
+Create, edit, delete movies
+
+Category dropdown (dynamic from API)
+
+Manage users (view & role update)
+
+Role-based menu access in navbar
+
+🔐 Authentication & Access Control
+Authentication Flow
+
+User logs in via /login
+
+Backend returns:
+
+token
+
+user.role
+
+user.name
+
+Frontend stores:
+
+token
+
+role
+
+name
+in localStorage
+
+Axios automatically injects token into all requests.
+
+Role-Based Access
+Role	Access
+Guest	Home, Movies, Login, Register
+User	Profile, Movie Detail
+Admin	Admin Dashboard, CRUD Movies, Manage Users
+
+Protected using ProtectedRoute:
+
+<ProtectedRoute role="admin">
+  <AdminDashboard />
+</ProtectedRoute>
+
+🗺️ Routing Structure
+src/
+├── pages/
+│   ├── Homepages.jsx
+│   ├── Login.jsx
+│   ├── Register.jsx
+│   ├── Movies.jsx
+│   ├── MovieDetail.jsx
+│   ├── Users.jsx
+│   ├── UserDetail.jsx
+│   └── admin/
+│       ├── AdminDashboard.jsx
+│       ├── AdminEditMovie.jsx
+│       └── MovieForm.jsx
+│
+├── components/
+│   ├── Navbar.jsx
+│   ├── ProtectedRoute.jsx
+│   └── Card.jsx
+│
+├── services/
+│   └── api.js
+│
+├── App.jsx
+└── main.jsx
+
+Protected Routes
+
+/users
+
+/users/:id
+
+/admin/*
+
+Unauthenticated users are redirected to /login.
+
+⚙️ Tech Stack
+Category	Technology
+Framework	React (Vite)
+Language	JavaScript
+Styling	Tailwind CSS
+Routing	React Router
+HTTP Client	Axios
+Icons	Lucide React
+Auth	Laravel Sanctum (Bearer Token)
+Deployment	Vercel
+🌐 API Integration
+Base URL
+VITE_API_URL=https://my-fullstack-backend.up.railway.app/api
+
+
+Used in Axios instance:
+
+baseURL: import.meta.env.VITE_API_URL
+
+Key Endpoints
+Auth
+Endpoint	Method	Description
+/register	POST	Register user
+/login	POST	Login user
+/logout	POST	Logout
+Movies
+Endpoint	Method	Access
+/movies	GET	Public
+/movies/{id}	GET	Public
+/movies	POST	Admin
+/movies/{id}	PUT	Admin
+/movies/{id}	DELETE	Admin
+Categories
+Endpoint	Method
+/categories	GET
+Users (Admin)
+Endpoint	Method
+/users	GET
+/users/{id}	GET
+/users/{id}	PUT
+Axios Interceptor
+
+Auto inject Authorization: Bearer <token>
+
+Auto redirect to /login on 401
+
+🧩 Component Architecture
+Reusable Components
+Component	Purpose
+Navbar	Navigation + Auth Menu
+ProtectedRoute	Route Guard
+Card	Movie Card
+Page Components
+
+Smart components handle data fetching (Movies, AdminDashboard)
+
+UI-focused components handle presentation only
+
+📱 Responsive Design
+Breakpoints
+Device	Behavior
+Mobile	Hamburger menu, dropdown search
+Tablet	Compact navbar, grid layout
+Desktop	Full navbar, expanded search
+Mobile UX
+
+Search icon outside hamburger
+
+Dropdown search input
+
+Touch-friendly buttons
+
+🚀 Deployment Notes
+Frontend Deployment (VERCEL)
+
+Domain auto-generated by Vercel
+
+
+Backend
+
+Laravel + MySQL (Railway service)
+
+Environment variables configured in Railway dashboard
+
+Migration executed on deploy
+
+🧠 Development Workflow
+
+Update styling / feature locally
+
+Commit & push to GitHub
+
+Railway auto redeploys
+
+Test production URL
+
+📬 Author
+
+Akbar Pangestu
+Fullstack Developer
+“Building scalable and real-world fullstack applications.”
