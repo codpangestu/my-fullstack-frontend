@@ -112,7 +112,7 @@ src/
 ## 🔌 API Integration
 
 **Base URL:**
-`VITE_API_URL=https://my-fullstack-backend.up.railway.app/api`
+`VITE_API_URL=https://my-fullstack-backend.production.up.railway.app/api`
 
 ### Key Endpoints
 
