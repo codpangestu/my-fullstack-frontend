@@ -74,7 +74,7 @@ const Movies = () => {
               <h1 className="text-5xl md:text-7xl font-black mb-4 uppercase italic tracking-tighter leading-none">{featured.title}</h1>
               <p className="text-gray-300 mb-8 text-sm md:text-base leading-relaxed line-clamp-3 max-w-xl">{featured.description}</p>
               <div className="flex gap-4">
-                <Link to={`/movies/${featured.id}`} className="bg-blue-500 hover:bg-blue-400 text-[#081C3A] px-8 py-3.5 rounded-md font-black flex items-center gap-2 transition-all">
+                <Link to={`/movies/${featured.id}`} className="bg-blue-500 hover:bg-blue-400 text-gray px-8 py-3.5 rounded-md font-black flex items-center gap-2 transition-all">
                   <Play size={20} fill="currentColor" /> WATCH NOW
                 </Link>
                 <button className="bg-white/10 hover:bg-white/20 border border-white/20 backdrop-blur-md p-3.5 rounded-md transition-all">

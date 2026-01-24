@@ -117,14 +117,14 @@ const MovieDetail = () => {
             <div className="flex flex-wrap gap-4 items-center pt-4">
               {!isAuth ? (
                 <Link to="/login" className="flex-1 md:flex-none">
-                  <button className="w-full bg-blue-500 hover:bg-blue-400 text-[#081C3A] px-10 py-4 rounded-md font-black text-lg transition-all flex items-center justify-center gap-3 uppercase tracking-tighter">
+                  <button className="w-full bg-blue-500 hover:bg-blue-400 text-gray px-10 py-4 rounded-md font-black text-lg transition-all flex items-center justify-center gap-3 uppercase tracking-tighter">
                     <Play size={24} fill="currentColor" /> Masuk untuk nonton
                   </button>
                 </Link>
               ) : (
                 <button
                   onClick={() => alert("Mulai nonton 🎬")}
-                  className="flex-1 md:flex-none bg-blue-500 hover:bg-blue-400 text-[#081C3A] px-10 py-4 rounded-md font-black text-lg transition-all flex items-center justify-center gap-3 uppercase tracking-tighter shadow-lg shadow-blue-500/20"
+                  className="flex-1 md:flex-none bg-blue-500 hover:bg-blue-400 text-gray px-10 py-4 rounded-md font-black text-lg transition-all flex items-center justify-center gap-3 uppercase tracking-tighter shadow-lg shadow-blue-500/20"
                 >
                   <Play size={24} fill="currentColor" /> Watch Now
                 </button>

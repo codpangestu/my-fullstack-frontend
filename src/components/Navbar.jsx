@@ -73,7 +73,7 @@ const Navbar = () => {
       className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
         isScrolled
           ? "bg-[#050b18]/90 backdrop-blur-xl border-b border-white/5 py-5 px-6 md:px-10 lg:px-16 shadow-[0_10px_30px_rgba(0,0,0,0.5)]"
-          : "bg-gradient-to-b from-black/90 via-black/40 to-transparent py-10 px-6 md:px-10 lg:px-16"
+          : "bg-gradient-to-b from-black/90 via-black/40 to-transparent py-7 px-6 md:px-10 lg:px-16"
       }`}
     >
       <div className="max-w-[1500px] mx-auto flex items-center justify-between">
@@ -148,7 +148,7 @@ const Navbar = () => {
             <div ref={dropdownRef} className="relative hidden md:block">
               <button
                 onClick={() => setShowProfile(!showProfile)}
-                className="flex items-center gap-3 bg-white/5 border border-white/10 p-1.5 pl-3 rounded-xl"
+                className="flex items-center gap-2 bg-white/5 border text-white border-white/10 p-1.5 pl-3 rounded-xl"
               >
                 <span className="hidden md:block text-[10px] font-black text-gray-400 uppercase tracking-widest">
                   Hi {name}

@@ -37,7 +37,7 @@ const Login = () => {
           "radial-gradient(circle, rgba(20,110,190,0.2) 0%, rgb(9, 97, 173) 70%)",
       }}
     >
-      <div className="absolute top-8  left-8 md:top-12 md:left-16 z-50">
+      <div className="absolute top-8  left-8 md:top-8 md:left-16 z-50">
         <Link
           to="/"
           className="text-3xl font-black tracking-tighter uppercase italic text-white "
@@ -94,7 +94,7 @@ const Login = () => {
                   </label>
                   <input
                     type="email"
-                    placeholder="name@example.com"
+                    placeholder="yourname@mail.com"
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     className="w-full bg-white/5 border border-white/10 text-white px-5 py-3.5 rounded-2xl outline-none text-sm focus:border-blue-500 focus:bg-white/10 transition-all placeholder:text-gray-500"
