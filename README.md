@@ -68,8 +68,6 @@
 
 > **Note:** Proteksi rute menggunakan komponen `<ProtectedRoute role="admin">`.
 
----
-
 ## 📂 Routing Structure
 
 ```text
@@ -94,6 +92,10 @@ src/
 │   └── api.js
 ├── App.jsx
 └── main.jsx
+
+---
+
+---
 ## 🛠 Tech Stack
 
 * **Framework**: React (Vite)
@@ -164,7 +166,7 @@ src/
 3.  Vercel akan mendeteksi perubahan dan melakukan **redeploy** secara otomatis.
 4.  Lakukan pengujian akhir pada URL produksi yang diberikan Vercel.
 
----
+
 
 ## 👨‍💻 Author
 
