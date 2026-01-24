@@ -94,4 +94,78 @@ src/
 │   └── api.js
 ├── App.jsx
 └── main.jsx
-🛠 Tech StackFramework: React (Vite)Language: JavaScriptStyling: Tailwind CSSRouting: React Router DOMHTTP Client: AxiosIcons: Lucide ReactAuth System: Laravel Sanctum (Bearer Token)Deployment: Vercel🔌 API IntegrationBase URL:VITE_API_URL=https://my-fullstack-backend.up.railway.app/apiKey EndpointsMethodEndpointAccessDescriptionPOST/loginPublicMasuk ke akunGET/moviesPublicAmbil semua filmPOST/moviesAdminTambah film baruDELETE/movies/{id}AdminHapus filmGET/usersAdminAmbil daftar userAxios ConfigurationInterceptor: Menambahkan header Authorization: Bearer <token>.Error Handling: Redirect otomatis ke /login jika menerima respon 401 (Unauthorized).📐 Component ArchitectureReusable ComponentsNavbar: Navigasi dinamis sesuai status login.ProtectedRoute: Guard rute berbasis otentikasi.Card: Komponen UI konsisten untuk display film.Page ComponentsSmart Components: Menangani logic API dan state management.UI Components: Fokus pada layouting dan styling.📱 Responsive DesignMobile: Menu hamburger, dropdown search, dan elemen touch-friendly.Tablet: Transisi grid layout yang adaptif.Desktop: Navbar horizontal penuh dengan fitur pencarian yang diperluas.📦 Deployment NotesFrontend: Hosting di Vercel dengan CI/CD aktif.Backend: Laravel + MySQL di hosting via Railway.Environment Variables: Pastikan VITE_API_URL sudah terdaftar di settings Vercel.🔄 Development WorkflowUpdate kode atau styling di lingkungan lokal.Commit dan Push ke branch utama di GitHub.Vercel akan mendeteksi push dan melakukan redeploy otomatis.Verifikasi perubahan pada URL produksi.👨‍💻 AuthorAkbar Pangestu Fullstack Developer "Building scalable and real-world fullstack applications."
+## 🛠 Tech Stack
+
+* **Framework**: React (Vite)
+* **Language**: JavaScript
+* **Styling**: Tailwind CSS
+* **Routing**: React Router DOM
+* **HTTP Client**: Axios
+* **Icons**: Lucide React
+* **Auth System**: Laravel Sanctum (Bearer Token)
+* **Deployment**: Vercel
+
+---
+
+## 🔌 API Integration
+
+**Base URL:**
+`VITE_API_URL=https://my-fullstack-backend.up.railway.app/api`
+
+### Key Endpoints
+
+| Method | Endpoint | Access | Description |
+| :--- | :--- | :--- | :--- |
+| `POST` | `/login` | Public | Masuk ke akun |
+| `GET` | `/movies` | Public | Ambil semua film |
+| `POST` | `/movies` | Admin | Tambah film baru |
+| `DELETE` | `/movies/{id}` | Admin | Hapus film |
+| `GET` | `/users` | Admin | Ambil daftar user |
+
+### Axios Configuration
+* **Interceptor**: Secara otomatis menyuntikkan header `Authorization: Bearer <token>`.
+* **Error Handling**: Jika menerima respon `401`, aplikasi otomatis melakukan redirect ke `/login`.
+
+---
+
+## 📐 Component Architecture
+
+### Reusable Components
+* **Navbar**: Menu navigasi dan auth menu.
+* **ProtectedRoute**: Guard rute berdasarkan status login dan role.
+* **Card**: Komponen kartu film yang konsisten.
+
+### Page Components
+* **Smart Components**: Menangani logika bisnis dan pengambilan data (Movies, Dashboard).
+* **UI Components**: Fokus murni pada presentasi data dan styling.
+
+---
+
+## 📱 Responsive Design
+
+* **Mobile**: Menu hamburger, pencarian dropdown, dan tombol ramah sentuhan (touch-friendly).
+* **Tablet**: Navbar kompak dan penyesuaian grid layout.
+* **Desktop**: Navbar penuh dengan search bar yang diperluas secara horizontal.
+
+---
+
+## 📦 Deployment Notes
+
+* **Frontend**: Di-host di **Vercel** dengan fitur *auto-deploy* setiap kali ada perubahan pada repo GitHub.
+* **Backend**: Menggunakan **Laravel + MySQL** yang berjalan di platform **Railway**.
+* **Environment Variables**: Pastikan variabel `VITE_API_URL` sudah dikonfigurasi di dashboard Vercel pada bagian *Environment Variables*.
+
+---
+
+## 🔄 Development Workflow
+
+1.  Update styling atau fitur baru secara lokal.
+2.  Lakukan **Commit** dan **Push** perubahan ke GitHub.
+3.  Vercel akan mendeteksi perubahan dan melakukan **redeploy** secara otomatis.
+4.  Lakukan pengujian akhir pada URL produksi yang diberikan Vercel.
+
+---
+
+## 👨‍💻 Author
+
+**Akbar Pangestu** *Fullstack Developer* > "Building scalable and real-world fullstack applications."
