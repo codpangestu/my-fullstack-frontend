@@ -1,5 +1,5 @@
 # DiStreaming – Frontend Documentation 🎬
-**React (Vite) + Tailwind CSS** *Last Updated: January 2026*
+**React (Vite) + Tailwind CSS** • *Last Updated: January 2026*
 
 ---
 
@@ -22,54 +22,51 @@
 **DiStreaming** adalah frontend platform streaming fullstack yang dibangun menggunakan **React (Vite)** dan **Tailwind CSS**. Aplikasi ini dirancang untuk terintegrasi dengan backend **Laravel REST API**.
 
 **Kemampuan Utama:**
-* Kontrol akses berbasis peran (**User & Admin**).
-* Penjelajahan dan pencarian film.
-* Manajemen film dan kategori khusus Admin.
-* Otentikasi aman menggunakan token-based auth.
-* UI yang sepenuhnya responsif (Mobile ke Desktop).
-* Di-deploy ke **Vercel**.
+* **RBAC**: Kontrol akses berbasis peran (User & Admin).
+* **Discovery**: Penjelajahan dan pencarian film secara real-time.
+* **Management**: CRUD film dan kategori khusus Admin.
+* **Security**: Otentikasi aman menggunakan Bearer Token.
+* **Responsive**: UI yang adaptif dari mobile hingga desktop.
 
 ---
 
 ## 🚀 Core Features
 
 ### 🌍 Public Access (Guest)
-* **Landing Page**: Halaman utama yang menarik.
-* **Movie List**: Menampilkan daftar film (read-only).
-* **Movie Detail**: Informasi mendalam tentang film tertentu.
-* **Auth**: Fitur Login dan Register.
+* **Landing Page**: Halaman utama yang informatif.
+* **Movie List**: Menampilkan katalog film (read-only).
+* **Movie Detail**: Informasi mendalam tentang sinopsis dan detail film.
+* **Auth**: Fitur pendaftaran akun dan masuk.
 
 ### 👤 User Features
-* **Authentication**: Login & Logout dengan aman.
-* **Profile**: Dropdown profil yang menampilkan nama pengguna.
-* **Browsing**: Mencari dan melihat detail film.
-* **Responsive Nav**: Navigasi lancar di berbagai ukuran layar.
+* **Authentication**: Manajemen session (Login/Logout).
+* **Profile**: Identitas pengguna di Navbar.
+* **Browsing**: Fitur pencarian film.
 
 ### ⚡ Admin Features
-* **Admin Dashboard**: Ringkasan data platform.
-* **Movie CRUD**: Membuat, mengedit, dan menghapus data film.
-* **Category Management**: Dropdown kategori dinamis yang diambil dari API.
-* **User Management**: Melihat daftar user dan memperbarui role.
-* **Role-Based Menu**: Menu navbar yang menyesuaikan izin akses.
+* **Admin Dashboard**: Ringkasan statistik platform.
+* **Movie CRUD**: Manajemen penuh konten film (Create, Read, Update, Delete).
+* **Category Management**: Pengelolaan kategori dinamis via API.
+* **User Management**: Kontrol daftar user dan pembaruan role.
 
 ---
 
 ## 🔒 Authentication & Access Control
 
 ### Authentication Flow
-1. User login melalui endpoint `/login`.
-2. Backend mengembalikan data: `token`, `user.role`, dan `user.name`.
-3. Frontend menyimpan data tersebut di **localStorage**.
-4. **Axios Interceptor** secara otomatis menyisipkan token ke setiap request.
+1.  User login via `/login`.
+2.  Backend mengirimkan `token`, `role`, dan `name`.
+3.  Frontend menyimpan data di `localStorage`.
+4.  **Axios Interceptor** menyisipkan token secara otomatis ke setiap request header.
 
 ### Role-Based Access Table
-| Role | Akses Halaman |
+| Role | Izin Akses Halaman |
 | :--- | :--- |
 | **Guest** | Home, Movies, Login, Register |
-| **User** | Profile, Movie Detail |
-| **Admin** | Dashboard, CRUD Movies, Manage Users |
+| **User** | Profile, Movie Detail, Browsing |
+| **Admin** | Dashboard, CRUD Movies, User Management |
 
-> **Note:** Proteksi rute dilakukan menggunakan komponen `<ProtectedRoute role="admin">`.
+> **Note:** Proteksi rute menggunakan komponen `<ProtectedRoute role="admin">`.
 
 ---
 
@@ -97,79 +94,4 @@ src/
 │   └── api.js
 ├── App.jsx
 └── main.jsx
-
-## 🛠 Tech Stack
-
-* **Framework**: React (Vite)
-* **Language**: JavaScript
-* **Styling**: Tailwind CSS
-* **Routing**: React Router DOM
-* **HTTP Client**: Axios
-* **Icons**: Lucide React
-* **Auth System**: Laravel Sanctum (Bearer Token)
-* **Deployment**: Vercel
-
----
-
-## 🔌 API Integration
-
-**Base URL:**
-`VITE_API_URL=https://my-fullstack-backend.up.railway.app/api`
-
-### Key Endpoints
-
-| Method | Endpoint | Access | Description |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/login` | Public | Masuk ke akun |
-| `GET` | `/movies` | Public | Ambil semua film |
-| `POST` | `/movies` | Admin | Tambah film baru |
-| `DELETE` | `/movies/{id}` | Admin | Hapus film |
-| `GET` | `/users` | Admin | Ambil daftar user |
-
-### Axios Configuration
-* **Interceptor**: Secara otomatis menyuntikkan header `Authorization: Bearer <token>`.
-* **Error Handling**: Jika menerima respon `401`, aplikasi otomatis melakukan redirect ke `/login`.
-
----
-
-## 📐 Component Architecture
-
-### Reusable Components
-* **Navbar**: Menu navigasi dan auth menu.
-* **ProtectedRoute**: Guard rute berdasarkan status login dan role.
-* **Card**: Komponen kartu film yang konsisten.
-
-### Page Components
-* **Smart Components**: Menangani logika bisnis dan pengambilan data (Movies, Dashboard).
-* **UI Components**: Fokus murni pada presentasi data dan styling.
-
----
-
-## 📱 Responsive Design
-
-* **Mobile**: Menu hamburger, pencarian dropdown, dan tombol ramah sentuhan (touch-friendly).
-* **Tablet**: Navbar kompak dan penyesuaian grid layout.
-* **Desktop**: Navbar penuh dengan search bar yang diperluas secara horizontal.
-
----
-
-## 📦 Deployment Notes
-
-* **Frontend**: Di-host di **Vercel** dengan fitur *auto-deploy* setiap kali ada perubahan pada repo GitHub.
-* **Backend**: Menggunakan **Laravel + MySQL** yang berjalan di platform **Railway**.
-* **Environment Variables**: Pastikan variabel `VITE_API_URL` sudah dikonfigurasi di dashboard Vercel pada bagian *Environment Variables*.
-
----
-
-## 🔄 Development Workflow
-
-1.  Update styling atau fitur baru secara lokal.
-2.  Lakukan **Commit** dan **Push** perubahan ke GitHub.
-3.  Vercel akan mendeteksi perubahan dan melakukan **redeploy** secara otomatis.
-4.  Lakukan pengujian akhir pada URL produksi yang diberikan Vercel.
-
----
-
-## 👨‍💻 Author
-
-**Akbar Pangestu** *Fullstack Developer* > "Building scalable and real-world fullstack applications."
+🛠 Tech StackFramework: React (Vite)Language: JavaScriptStyling: Tailwind CSSRouting: React Router DOMHTTP Client: AxiosIcons: Lucide ReactAuth System: Laravel Sanctum (Bearer Token)Deployment: Vercel🔌 API IntegrationBase URL:VITE_API_URL=https://my-fullstack-backend.up.railway.app/apiKey EndpointsMethodEndpointAccessDescriptionPOST/loginPublicMasuk ke akunGET/moviesPublicAmbil semua filmPOST/moviesAdminTambah film baruDELETE/movies/{id}AdminHapus filmGET/usersAdminAmbil daftar userAxios ConfigurationInterceptor: Menambahkan header Authorization: Bearer <token>.Error Handling: Redirect otomatis ke /login jika menerima respon 401 (Unauthorized).📐 Component ArchitectureReusable ComponentsNavbar: Navigasi dinamis sesuai status login.ProtectedRoute: Guard rute berbasis otentikasi.Card: Komponen UI konsisten untuk display film.Page ComponentsSmart Components: Menangani logic API dan state management.UI Components: Fokus pada layouting dan styling.📱 Responsive DesignMobile: Menu hamburger, dropdown search, dan elemen touch-friendly.Tablet: Transisi grid layout yang adaptif.Desktop: Navbar horizontal penuh dengan fitur pencarian yang diperluas.📦 Deployment NotesFrontend: Hosting di Vercel dengan CI/CD aktif.Backend: Laravel + MySQL di hosting via Railway.Environment Variables: Pastikan VITE_API_URL sudah terdaftar di settings Vercel.🔄 Development WorkflowUpdate kode atau styling di lingkungan lokal.Commit dan Push ke branch utama di GitHub.Vercel akan mendeteksi push dan melakukan redeploy otomatis.Verifikasi perubahan pada URL produksi.👨‍💻 AuthorAkbar Pangestu Fullstack Developer "Building scalable and real-world fullstack applications."
